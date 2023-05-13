@@ -1,12 +1,14 @@
+import 'package:counter_2/first/first_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SecondPage extends StatelessWidget {
-  SecondPage({
-    this.sanAlipKel,
-    this.magaTextKelcin,
-  });
-  String? magaTextKelcin;
-  int? sanAlipKel;
+  SecondPage();
+  FirstController _firstController =
+      Get.put<FirstController>(FirstController());
+
+  // this.magaTextKelcin;
+  //String? magaTextKelcin;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class SecondPage extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Center(
           child: Text(
-            'Second Page $sanAlipKel',
+            'Second Page ',
             style: TextStyle(color: Colors.black),
           ),
         ),
@@ -37,7 +39,7 @@ class SecondPage extends StatelessWidget {
                   vertical: 15,
                 ),
                 child: Text(
-                  'San $sanAlipKel  $magaTextKelcin',
+                  'San: ${_firstController.number.value}',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -47,7 +49,7 @@ class SecondPage extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Navigator.pop(context);
+                Get.back();
               },
               child: Icon(
                 Icons.skip_next,
